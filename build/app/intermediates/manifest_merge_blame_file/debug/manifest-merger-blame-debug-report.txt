@@ -12,8 +12,8 @@
 12         to allow setting breakpoints, to provide hot reload, etc.
 13    -->
 14    <uses-permission android:name="android.permission.INTERNET" />
-14-->D:\AlphaCodez\taxio\android\app\src\main\AndroidManifest.xml:10:5-67
-14-->D:\AlphaCodez\taxio\android\app\src\main\AndroidManifest.xml:10:22-64
+14-->D:\AlphaCodez\taxiooo\android\app\src\main\AndroidManifest.xml:10:5-67
+14-->D:\AlphaCodez\taxiooo\android\app\src\main\AndroidManifest.xml:10:22-64
 15    <!--
 16     io.flutter.app.FlutterApplication is an android.app.Application that
 17         calls FlutterMain.startInitialization(this); in its onCreate method.
@@ -22,11 +22,11 @@
 20         FlutterApplication and put your custom class here.
 21    -->
 22    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-22-->D:\AlphaCodez\taxio\android\app\src\main\AndroidManifest.xml:8:5-79
-22-->D:\AlphaCodez\taxio\android\app\src\main\AndroidManifest.xml:8:22-76
+22-->D:\AlphaCodez\taxiooo\android\app\src\main\AndroidManifest.xml:8:5-79
+22-->D:\AlphaCodez\taxiooo\android\app\src\main\AndroidManifest.xml:8:22-76
 23    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- Include required permissions for Google Maps API to run. -->
-23-->D:\AlphaCodez\taxio\android\app\src\main\AndroidManifest.xml:9:5-81
-23-->D:\AlphaCodez\taxio\android\app\src\main\AndroidManifest.xml:9:22-78
+23-->D:\AlphaCodez\taxiooo\android\app\src\main\AndroidManifest.xml:9:5-81
+23-->D:\AlphaCodez\taxiooo\android\app\src\main\AndroidManifest.xml:9:22-78
 24    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 24-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Hp\.gradle\caches\transforms-2\files-2.1\4ebe119ef6f785c66e1535b687fc1de5\play-services-maps-17.0.0\AndroidManifest.xml:23:5-79
 24-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Hp\.gradle\caches\transforms-2\files-2.1\4ebe119ef6f785c66e1535b687fc1de5\play-services-maps-17.0.0\AndroidManifest.xml:23:22-76
@@ -39,30 +39,30 @@
 28-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Hp\.gradle\caches\transforms-2\files-2.1\4ebe119ef6f785c66e1535b687fc1de5\play-services-maps-17.0.0\AndroidManifest.xml:28:9-32
 29
 30    <application
-30-->D:\AlphaCodez\taxio\android\app\src\main\AndroidManifest.xml:11:5-53:19
+30-->D:\AlphaCodez\taxiooo\android\app\src\main\AndroidManifest.xml:11:5-53:19
 31        android:name="io.flutter.app.FlutterApplication"
-31-->D:\AlphaCodez\taxio\android\app\src\main\AndroidManifest.xml:12:9-57
+31-->D:\AlphaCodez\taxiooo\android\app\src\main\AndroidManifest.xml:12:9-57
 32        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 32-->[androidx.core:core:1.2.0] C:\Users\Hp\.gradle\caches\transforms-2\files-2.1\078cfc1ed75557361985d68548cae92e\core-1.2.0\AndroidManifest.xml:24:18-86
 33        android:debuggable="true"
 34        android:icon="@mipmap/ic_launcher"
-34-->D:\AlphaCodez\taxio\android\app\src\main\AndroidManifest.xml:14:9-43
+34-->D:\AlphaCodez\taxiooo\android\app\src\main\AndroidManifest.xml:14:9-43
 35        android:label="taxio" >
-35-->D:\AlphaCodez\taxio\android\app\src\main\AndroidManifest.xml:13:9-30
+35-->D:\AlphaCodez\taxiooo\android\app\src\main\AndroidManifest.xml:13:9-30
 36        <activity
-36-->D:\AlphaCodez\taxio\android\app\src\main\AndroidManifest.xml:15:9-43:20
+36-->D:\AlphaCodez\taxiooo\android\app\src\main\AndroidManifest.xml:15:9-43:20
 37            android:name="com.faizan.taxio.MainActivity"
-37-->D:\AlphaCodez\taxio\android\app\src\main\AndroidManifest.xml:16:13-41
+37-->D:\AlphaCodez\taxiooo\android\app\src\main\AndroidManifest.xml:16:13-41
 38            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-38-->D:\AlphaCodez\taxio\android\app\src\main\AndroidManifest.xml:19:13-163
+38-->D:\AlphaCodez\taxiooo\android\app\src\main\AndroidManifest.xml:19:13-163
 39            android:hardwareAccelerated="true"
-39-->D:\AlphaCodez\taxio\android\app\src\main\AndroidManifest.xml:20:13-47
+39-->D:\AlphaCodez\taxiooo\android\app\src\main\AndroidManifest.xml:20:13-47
 40            android:launchMode="singleTop"
-40-->D:\AlphaCodez\taxio\android\app\src\main\AndroidManifest.xml:17:13-43
+40-->D:\AlphaCodez\taxiooo\android\app\src\main\AndroidManifest.xml:17:13-43
 41            android:theme="@style/LaunchTheme"
-41-->D:\AlphaCodez\taxio\android\app\src\main\AndroidManifest.xml:18:13-47
+41-->D:\AlphaCodez\taxiooo\android\app\src\main\AndroidManifest.xml:18:13-47
 42            android:windowSoftInputMode="adjustResize" >
-42-->D:\AlphaCodez\taxio\android\app\src\main\AndroidManifest.xml:21:13-55
+42-->D:\AlphaCodez\taxiooo\android\app\src\main\AndroidManifest.xml:21:13-55
 43
 44            <!--
 45                 Specifies an Android theme to apply to this Activity as soon as
@@ -71,11 +71,11 @@
 48                 to determine the Window background behind the Flutter UI.
 49            -->
 50            <meta-data
-50-->D:\AlphaCodez\taxio\android\app\src\main\AndroidManifest.xml:26:13-29:17
+50-->D:\AlphaCodez\taxiooo\android\app\src\main\AndroidManifest.xml:26:13-29:17
 51                android:name="io.flutter.embedding.android.NormalTheme"
-51-->D:\AlphaCodez\taxio\android\app\src\main\AndroidManifest.xml:27:15-70
+51-->D:\AlphaCodez\taxiooo\android\app\src\main\AndroidManifest.xml:27:15-70
 52                android:resource="@style/NormalTheme" />
-52-->D:\AlphaCodez\taxio\android\app\src\main\AndroidManifest.xml:28:15-52
+52-->D:\AlphaCodez\taxiooo\android\app\src\main\AndroidManifest.xml:28:15-52
 53            <!--
 54                 Displays an Android View that continues showing the launch screen
 55                 Drawable until Flutter paints its first frame, then this splash
@@ -84,21 +84,21 @@
 58                 Flutter's first frame.
 59            -->
 60            <meta-data
-60-->D:\AlphaCodez\taxio\android\app\src\main\AndroidManifest.xml:35:13-38:17
+60-->D:\AlphaCodez\taxiooo\android\app\src\main\AndroidManifest.xml:35:13-38:17
 61                android:name="io.flutter.embedding.android.SplashScreenDrawable"
-61-->D:\AlphaCodez\taxio\android\app\src\main\AndroidManifest.xml:36:15-79
+61-->D:\AlphaCodez\taxiooo\android\app\src\main\AndroidManifest.xml:36:15-79
 62                android:resource="@drawable/launch_background" />
-62-->D:\AlphaCodez\taxio\android\app\src\main\AndroidManifest.xml:37:15-61
+62-->D:\AlphaCodez\taxiooo\android\app\src\main\AndroidManifest.xml:37:15-61
 63
 64            <intent-filter>
-64-->D:\AlphaCodez\taxio\android\app\src\main\AndroidManifest.xml:39:13-42:29
+64-->D:\AlphaCodez\taxiooo\android\app\src\main\AndroidManifest.xml:39:13-42:29
 65                <action android:name="android.intent.action.MAIN" />
-65-->D:\AlphaCodez\taxio\android\app\src\main\AndroidManifest.xml:40:17-68
-65-->D:\AlphaCodez\taxio\android\app\src\main\AndroidManifest.xml:40:25-66
+65-->D:\AlphaCodez\taxiooo\android\app\src\main\AndroidManifest.xml:40:17-68
+65-->D:\AlphaCodez\taxiooo\android\app\src\main\AndroidManifest.xml:40:25-66
 66
 67                <category android:name="android.intent.category.LAUNCHER" />
-67-->D:\AlphaCodez\taxio\android\app\src\main\AndroidManifest.xml:41:17-76
-67-->D:\AlphaCodez\taxio\android\app\src\main\AndroidManifest.xml:41:27-74
+67-->D:\AlphaCodez\taxiooo\android\app\src\main\AndroidManifest.xml:41:17-76
+67-->D:\AlphaCodez\taxiooo\android\app\src\main\AndroidManifest.xml:41:27-74
 68            </intent-filter>
 69        </activity>
 70        <!--
@@ -106,17 +106,17 @@
 72             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
 73        -->
 74        <meta-data
-74-->D:\AlphaCodez\taxio\android\app\src\main\AndroidManifest.xml:46:9-48:33
+74-->D:\AlphaCodez\taxiooo\android\app\src\main\AndroidManifest.xml:46:9-48:33
 75            android:name="flutterEmbedding"
-75-->D:\AlphaCodez\taxio\android\app\src\main\AndroidManifest.xml:47:13-44
+75-->D:\AlphaCodez\taxiooo\android\app\src\main\AndroidManifest.xml:47:13-44
 76            android:value="2" />
-76-->D:\AlphaCodez\taxio\android\app\src\main\AndroidManifest.xml:48:13-30
+76-->D:\AlphaCodez\taxiooo\android\app\src\main\AndroidManifest.xml:48:13-30
 77        <meta-data
-77-->D:\AlphaCodez\taxio\android\app\src\main\AndroidManifest.xml:50:9-51:70
+77-->D:\AlphaCodez\taxiooo\android\app\src\main\AndroidManifest.xml:50:9-51:70
 78            android:name="com.google.android.geo.API_KEY"
-78-->D:\AlphaCodez\taxio\android\app\src\main\AndroidManifest.xml:50:20-65
+78-->D:\AlphaCodez\taxiooo\android\app\src\main\AndroidManifest.xml:50:20-65
 79            android:value="AIzaSyDF2jk_6QlbwWBhsKMjrj2D0lmArQHIrk0" />
-79-->D:\AlphaCodez\taxio\android\app\src\main\AndroidManifest.xml:51:13-68
+79-->D:\AlphaCodez\taxiooo\android\app\src\main\AndroidManifest.xml:51:13-68
 80
 81        <!-- Needs to be explicitly declared on P+ -->
 82        <uses-library
