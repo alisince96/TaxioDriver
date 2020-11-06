@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../Constants.dart';
-import 'package:taxio/Constants.dart';
+import '../Constants/Constants.dart';
+import 'package:taxio/Constants/Constants.dart';
 
 class FareEstimateScreen extends StatelessWidget {
   static const routeName = '/FareEstimateScreen';
@@ -12,7 +12,12 @@ class FareEstimateScreen extends StatelessWidget {
         title: Container(
           width: 270,
           height: 40,
-          child: card(Padding(padding: EdgeInsets.all(7), child: TextField()),
+          child: card(
+              Padding(
+                  padding: EdgeInsets.all(7),
+                  child: TextField(
+                    decoration: InputDecoration(border: InputBorder.none),
+                  )),
               Colors.white),
         ),
         actions: [

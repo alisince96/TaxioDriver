@@ -8,6 +8,12 @@
       "languageVersion": "2.10"
     },
     {
+      "name": "bloc",
+      "rootUri": "file:///D:/Softwares%20setups/flutter/.pub-cache/hosted/pub.dartlang.org/bloc-6.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.6"
+    },
+    {
       "name": "boolean_selector",
       "rootUri": "file:///D:/Softwares%20setups/flutter/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.1.0-nullsafety.1",
       "packageUri": "lib/",
@@ -66,6 +72,12 @@
       "rootUri": "file:///D:/Softwares%20setups/flutter/packages/flutter",
       "packageUri": "lib/",
       "languageVersion": "2.10"
+    },
+    {
+      "name": "flutter_bloc",
+      "rootUri": "file:///D:/Softwares%20setups/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_bloc-6.0.6",
+      "packageUri": "lib/",
+      "languageVersion": "2.6"
     },
     {
       "name": "flutter_plugin_android_lifecycle",
@@ -260,7 +272,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2020-11-04T11:52:10.705902Z",
+  "generated": "2020-11-06T09:27:19.367523Z",
   "generator": "pub",
   "generatorVersion": "2.10.2"
 }

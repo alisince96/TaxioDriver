@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:taxio/Constants.dart';
+import 'package:taxio/Constants/Constants.dart';
 
 class EditAccountScreen extends StatelessWidget {
   static const routeName = '/EditAccountScreen';
@@ -25,8 +25,8 @@ class EditAccountScreen extends StatelessWidget {
                         radius: deviceSize.width * 0.17,
                       ),
                       Positioned(
-                        right: deviceSize.width * 0.06,
-                        top: deviceSize.width * 0.06,
+                        right: 20,
+                        top: 10,
                         child: Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,

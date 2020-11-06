@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:taxio/Constants.dart';
+import 'package:taxio/Constants/Constants.dart';
 import 'package:taxio/Screens/ReceiptScreen.dart';
 
 class TripDetailsComplaintScreen extends StatefulWidget {

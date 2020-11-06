@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:taxio/Blocs/RegistrationBloc/bloc/registeration_bloc.dart';
 import 'package:taxio/Screens/EditAccountScreen.dart';
 import 'package:taxio/Screens/EnterLocationScreen.dart';
 import 'package:taxio/Screens/HomeScreen.dart';
@@ -22,24 +24,29 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      home: AuthScreen(),
-      routes: {
-        HomeScreen.routeName: (ctx) => HomeScreen(),
-        TripsScreen.routeName: (ctx) => TripsScreen(),
-        PromotionScreen.routeName: (ctx) => PromotionScreen(),
-        SettingsScreen.routeName: (ctx) => SettingsScreen(),
-        EditAccountScreen.routeName: (ctx) => EditAccountScreen(),
-        TaxioWalletScreen.routeName: (ctx) => TaxioWalletScreen(),
-        TripDetailsScreen.routeName: (ctx) => TripDetailsScreen(),
-        TripDetailsComplaintScreen.routeName: (ctx) =>
-            TripDetailsComplaintScreen(),
-        ReceiptScreen.routeName: (ctx) => ReceiptScreen(),
-        FareEstimateScreen.routeName: (ctx) => FareEstimateScreen(),
-        EnterLocationScreen.routeName: (ctx) => EnterLocationScreen(),
-        RegisterScreen.routeName: (ctx) => RegisterScreen(),
-      },
-    );
+    return MultiBlocProvider(
+        providers: [
+          BlocProvider<RegisterationBloc>(
+              create: (BuildContext context) => RegisterationBloc()),
+        ],
+        child: MaterialApp(
+          title: 'Flutter Demo',
+          home: AuthScreen(),
+          routes: {
+            HomeScreen.routeName: (ctx) => HomeScreen(),
+            TripsScreen.routeName: (ctx) => TripsScreen(),
+            PromotionScreen.routeName: (ctx) => PromotionScreen(),
+            SettingsScreen.routeName: (ctx) => SettingsScreen(),
+            EditAccountScreen.routeName: (ctx) => EditAccountScreen(),
+            TaxioWalletScreen.routeName: (ctx) => TaxioWalletScreen(),
+            TripDetailsScreen.routeName: (ctx) => TripDetailsScreen(),
+            TripDetailsComplaintScreen.routeName: (ctx) =>
+                TripDetailsComplaintScreen(),
+            ReceiptScreen.routeName: (ctx) => ReceiptScreen(),
+            FareEstimateScreen.routeName: (ctx) => FareEstimateScreen(),
+            EnterLocationScreen.routeName: (ctx) => EnterLocationScreen(),
+            RegisterScreen.routeName: (context) => RegisterScreen()
+          },
+        ));
   }
 }

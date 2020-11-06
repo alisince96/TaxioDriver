@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../Constants.dart';
+import '../Constants/Constants.dart';
 import 'EditAccountScreen.dart';
 
 enum popUpVal {

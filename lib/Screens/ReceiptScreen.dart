@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../Constants.dart';
+import '../Constants/Constants.dart';
 
 class ReceiptScreen extends StatelessWidget {
   static const routeName = '/ReceiptScreen';

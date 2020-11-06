@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:taxio/Constants.dart';
+import 'package:taxio/Constants/Constants.dart';
 
 class PromotionScreen extends StatelessWidget {
   static const routeName = '/PromotionScreen';

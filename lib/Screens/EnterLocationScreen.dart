@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_place_picker/google_maps_place_picker.dart';
 import 'package:taxio/Widgets/Drawer.dart';
-import '../Constants.dart';
+import '../Constants/Constants.dart';
 import 'FareEstimateScreen.dart';
 
 class EnterLocationScreen extends StatelessWidget {
@@ -13,6 +13,12 @@ class EnterLocationScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+          ),
+          onPressed: () => Navigator.pop(context),
+        ),
       ),
       drawer: SafeArea(
         child: Draw(),
@@ -24,9 +30,12 @@ class EnterLocationScreen extends StatelessWidget {
               ? Container()
               : Text(selectedPlace.formattedAddress ?? ""),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(10.0),
             child: Card(
               color: Colors.white,
+              elevation: 5.0,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.0)),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(

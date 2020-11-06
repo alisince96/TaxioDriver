@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:taxio/Constants.dart';
+import 'package:taxio/Constants/Constants.dart';
 import 'package:taxio/Screens/EnterLocationScreen.dart';
 import 'package:taxio/Screens/FareEstimateScreen.dart';
 import 'package:taxio/Widgets/Drawer.dart';
@@ -92,7 +92,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   Center(
                     child: GestureDetector(
                       onTap: () {
-                        navFunction(context, EnterLocationScreen.routeName);
+                        showDialog(
+                            context: context, child: EnterLocationScreen());
+                        //navFunction(context, EnterLocationScreen.routeName);
                       },
                       child: card(
                         Padding(
@@ -157,7 +159,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   car == SelectedCar.cheapest
                                       ? colour
                                       : Color(0x00000000),
-                                  'Chpeapest',
+                                  'Cheapest',
                                 ),
                               ),
                             ),
