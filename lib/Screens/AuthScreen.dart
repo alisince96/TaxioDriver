@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../Constants.dart';
+import '../Constants/Constants.dart';
 import 'HomeScreen.dart';
-import 'RegisterScreen.dart';
+import 'RegisterPhoneScreen.dart';
 
 class AuthScreen extends StatelessWidget {
   @override
@@ -32,7 +32,7 @@ class AuthScreen extends StatelessWidget {
               child: Column(
                 children: [
                   ButtonWidget(HomeScreen.routeName, 'Sign In'),
-                  ButtonWidget(RegisterScreen.routeName, 'Register'),
+                  ButtonWidget(RegisterPhoneScreen.routeName, 'Register'),
                 ],
               ),
             ),

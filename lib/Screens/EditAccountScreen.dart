@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:taxio/Constants.dart';
+import '../Constants/Constants.dart';
 
 class EditAccountScreen extends StatelessWidget {
   static const routeName = '/EditAccountScreen';

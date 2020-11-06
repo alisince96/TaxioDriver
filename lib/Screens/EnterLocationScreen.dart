@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_place_picker/google_maps_place_picker.dart';
 import 'package:taxio/Widgets/Drawer.dart';
-import '../Constants.dart';
+import '../Constants/Constants.dart';
 import 'FareEstimateScreen.dart';
 
 class EnterLocationScreen extends StatelessWidget {
@@ -41,9 +41,10 @@ class EnterLocationScreen extends StatelessWidget {
                               apiKey:
                                   'AIzaSyDF2jk_6QlbwWBhsKMjrj2D0lmArQHIrk0', // Put YOUR OWN KEY here.
                               onPlacePicked: (result) {
-                                print(result.adrAddress);
-                                Navigator.of(context).pop();
+                                print(result.geometry.location.lat);
+                                print(result.geometry.location.lng);
                                 selectedPlace = result;
+                                Navigator.of(context).pop();
                               },
                               useCurrentLocation: true,
                             ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:taxio/Screens/TripDetailsComplaintScreen.dart';
-import 'package:taxio/Constants.dart';
+import '../Constants/Constants.dart';
 
 class TripDetailsScreen extends StatelessWidget {
   static const routeName = '/TripDetailsScreen';

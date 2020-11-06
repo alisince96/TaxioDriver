@@ -4,7 +4,7 @@ import 'package:taxio/Screens/EnterLocationScreen.dart';
 import 'package:taxio/Screens/HomeScreen.dart';
 import 'package:taxio/Screens/PromotionScreen.dart';
 import 'package:taxio/Screens/ReceiptScreen.dart';
-import 'package:taxio/Screens/RegisterScreen.dart';
+import 'package:taxio/Screens/RegisterPhoneScreen.dart';
 import 'package:taxio/Screens/SettingsScreen.dart';
 import 'package:taxio/Screens/TaxioWalletScreen.dart';
 import 'package:taxio/Screens/TripDetailsComplaintScreen.dart';
@@ -13,6 +13,8 @@ import 'package:taxio/Screens/TripsScreen.dart';
 
 import 'Screens/AuthScreen.dart';
 import 'Screens/FareEstimateScreen.dart';
+import 'Screens/OPTscreen.dart';
+import 'Screens/RegisterNameEmailPW.dart';
 
 void main() {
   runApp(MyApp());
@@ -38,7 +40,9 @@ class MyApp extends StatelessWidget {
         ReceiptScreen.routeName: (ctx) => ReceiptScreen(),
         FareEstimateScreen.routeName: (ctx) => FareEstimateScreen(),
         EnterLocationScreen.routeName: (ctx) => EnterLocationScreen(),
-        RegisterScreen.routeName: (ctx) => RegisterScreen(),
+        RegisterPhoneScreen.routeName: (ctx) => RegisterPhoneScreen(),
+        RegisterNameEmailPW.routeName: (ctx) => RegisterNameEmailPW(),
+        OPTscreen.routeName: (ctx) => OPTscreen(),
       },
     );
   }

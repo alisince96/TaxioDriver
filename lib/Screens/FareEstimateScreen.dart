@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import '../Constants.dart';
-import 'package:taxio/Constants.dart';
+import '../Constants/Constants.dart';
 
 class FareEstimateScreen extends StatelessWidget {
   static const routeName = '/FareEstimateScreen';

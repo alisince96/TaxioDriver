@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:taxio/Constants.dart';
+import '../Constants/Constants.dart';
 import 'package:taxio/Screens/EnterLocationScreen.dart';
 import 'package:taxio/Screens/FareEstimateScreen.dart';
 import 'package:taxio/Widgets/Drawer.dart';
