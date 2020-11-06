@@ -15,6 +15,7 @@ import 'Screens/AuthScreen.dart';
 import 'Screens/FareEstimateScreen.dart';
 import 'Screens/OPTscreen.dart';
 import 'Screens/RegisterNameEmailPW.dart';
+import 'Screens/SignInScreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -43,6 +44,7 @@ class MyApp extends StatelessWidget {
         RegisterPhoneScreen.routeName: (ctx) => RegisterPhoneScreen(),
         RegisterNameEmailPW.routeName: (ctx) => RegisterNameEmailPW(),
         OPTscreen.routeName: (ctx) => OPTscreen(),
+        SignInScreen.routeName: (ctx) => SignInScreen(),
       },
     );
   }
