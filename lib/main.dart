@@ -17,6 +17,7 @@ import 'Screens/AuthScreen.dart';
 import 'Screens/FareEstimateScreen.dart';
 import 'Screens/OPTscreen.dart';
 import 'Screens/RegisterNameEmailPW.dart';
+import 'Screens/SignInScreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
     return MultiBlocProvider(
         providers: [
           BlocProvider<RegisterationBloc>(
@@ -52,5 +54,29 @@ class MyApp extends StatelessWidget {
             OPTscreen.routeName: (ctx) => OPTscreen(),
           },
         ));
+=======
+    return MaterialApp(
+      title: 'Flutter Demo',
+      home: AuthScreen(),
+      routes: {
+        HomeScreen.routeName: (ctx) => HomeScreen(),
+        TripsScreen.routeName: (ctx) => TripsScreen(),
+        PromotionScreen.routeName: (ctx) => PromotionScreen(),
+        SettingsScreen.routeName: (ctx) => SettingsScreen(),
+        EditAccountScreen.routeName: (ctx) => EditAccountScreen(),
+        TaxioWalletScreen.routeName: (ctx) => TaxioWalletScreen(),
+        TripDetailsScreen.routeName: (ctx) => TripDetailsScreen(),
+        TripDetailsComplaintScreen.routeName: (ctx) =>
+            TripDetailsComplaintScreen(),
+        ReceiptScreen.routeName: (ctx) => ReceiptScreen(),
+        FareEstimateScreen.routeName: (ctx) => FareEstimateScreen(),
+        EnterLocationScreen.routeName: (ctx) => EnterLocationScreen(),
+        RegisterPhoneScreen.routeName: (ctx) => RegisterPhoneScreen(),
+        RegisterNameEmailPW.routeName: (ctx) => RegisterNameEmailPW(),
+        OPTscreen.routeName: (ctx) => OPTscreen(),
+        SignInScreen.routeName: (ctx) => SignInScreen(),
+      },
+    );
+>>>>>>> 0ae666e34aa4ed25dab1f3914dcf06172109b55c
   }
 }
