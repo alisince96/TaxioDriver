@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
+import 'package:taxio/Models/RegisterResponse.dart';
 import 'package:taxio/Models/phoneValidityResponse.dart';
 import 'package:taxio/Repository/repository.dart';
 
@@ -27,6 +28,18 @@ class RegisterationBloc extends Bloc<RegisterationEvent, RegisterationState> {
         } else {
           yield ErrorState(error: 'Invalid phone number');
         }
+      }
+    } else if (event is RegisterTrigger) {
+      yield LoadingState();
+      RegisterResponse registerResponse = await repository.register(
+          name: event.name,
+          email: event.email,
+          password: event.password,
+          phone: event.phone);
+      if (registerResponse != null && registerResponse.data!=null){
+        yield RegisterSuccess();
+      } else {
+        yield ErrorState(error: 'Failed to register');
       }
     }
   }

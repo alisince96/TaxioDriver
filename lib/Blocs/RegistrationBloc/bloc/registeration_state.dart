@@ -13,3 +13,4 @@ class ErrorState extends RegisterationState {
 }
 
 class PhoneValiditySuccess extends RegisterationState {}
+class RegisterSuccess extends RegisterationState{}

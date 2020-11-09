@@ -50,9 +50,10 @@ class EnterLocationScreen extends StatelessWidget {
                               apiKey:
                                   'AIzaSyDF2jk_6QlbwWBhsKMjrj2D0lmArQHIrk0', // Put YOUR OWN KEY here.
                               onPlacePicked: (result) {
-                                print(result.adrAddress);
-                                Navigator.of(context).pop();
+                                print(result.geometry.location.lat);
+                                print(result.geometry.location.lng);
                                 selectedPlace = result;
+                                Navigator.of(context).pop();
                               },
                               useCurrentLocation: true,
                             ),
