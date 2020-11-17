@@ -32,7 +32,7 @@ class GetDataFromHttp {
 
     var response = await http.post(url, headers: headers);
     if (response.statusCode == 200) {
-      print('response: ${json.decode(response.body)}');
+      // print('response: ${json.decode(response.body)}');
       return json.decode(response.body);
     } else {
       print('error: ${response.statusCode}');

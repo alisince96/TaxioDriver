@@ -31,9 +31,9 @@ class DotWidget extends StatelessWidget {
 }
 
 class ButtonWidget extends StatelessWidget {
-  ButtonWidget(this.navPage, this.btnTxt);
-  String navPage;
   String btnTxt;
+  Function funk;
+  ButtonWidget(this.funk, this.btnTxt);
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -43,9 +43,7 @@ class ButtonWidget extends StatelessWidget {
         color: Colors.black,
         borderRadius: BorderRadius.circular(30.0),
         child: MaterialButton(
-          onPressed: () {
-            navFunction(context, navPage);
-          },
+          onPressed: funk,
           minWidth: 350,
           height: 42.0,
           child: Text(

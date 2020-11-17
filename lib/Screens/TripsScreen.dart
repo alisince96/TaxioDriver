@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:taxio/MapListingBloc/ListingBloc.dart';
+import 'package:taxio/MapListingBloc/MapListingEvent.dart';
 import 'package:taxio/Screens/TripDetailsScreen.dart';
 
-class TripsScreen extends StatelessWidget {
+class TripsScreen extends StatefulWidget {
   static const routeName = '/TripsScreen';
+
+  @override
+  _TripsScreenState createState() => _TripsScreenState();
+}
+
+class _TripsScreenState extends State<TripsScreen> {
   List<Trip> tripsData = [
     Trip(
       tripCount: 0,
@@ -30,86 +39,113 @@ class TripsScreen extends StatelessWidget {
       rating: 2,
     ),
   ];
+
+  MapListingBloc _mapListingBloc;
+
+  @override
+  void initState() {
+    super.initState();
+    _mapListingBloc = BlocProvider.of<MapListingBloc>(context);
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey,
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-      ),
-      body: Container(
-        color: Colors.white,
-        padding: EdgeInsets.only(top: 10, left: 10, right: 10),
-        child: LayoutBuilder(builder: (ctx, constraints) {
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Container(
-                  height: constraints.maxHeight * 0.07,
-                  child: Center(
-                    child: Text(
-                      'Your Past Trips',
-                      style: TextStyle(fontSize: 23),
-                    ),
-                  )),
-              Container(
-                height: constraints.maxHeight * 0.93,
-                child: ListView(
-                  children: tripsData
-                      .map((trip) => Container(
-                            padding: EdgeInsets.symmetric(vertical: 10),
-                            height: 300,
-                            child: GridTile(
-                              child: GestureDetector(
-                                onTap: () {
-                                  Navigator.pushNamed(
-                                    context,
-                                    TripDetailsScreen.routeName,
-                                    arguments: {
-                                      'name': trip.name,
-                                      'rating': trip.rating,
-                                      'date': trip.date,
-                                    },
-                                  );
-                                },
-                                child: FadeInImage(
-                                  placeholder:
-                                      AssetImage('assets/images/map.jpg'),
-                                  image: AssetImage('assets/images/map.jpg'),
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              footer: GridTileBar(
-                                backgroundColor: Colors.grey[850],
-                                leading: Icon(Icons.access_alarms),
-                                title: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      '${trip.date.toString().substring(0, 10)}   ${trip.date.toString().substring(12, 19)}',
-                                      style: TextStyle(fontSize: 15),
-                                    ),
-                                    trip.tripCount == 0
-                                        ? Text(
-                                            'cancelled',
-                                            style: TextStyle(fontSize: 20),
-                                          )
-                                        : Text('${trip.tripCount.toString()}',
-                                            style: TextStyle(fontSize: 20)),
-                                  ],
-                                ),
-                              ),
+    return BlocConsumer(
+        cubit: _mapListingBloc,
+        listener: (BuildContext context, state) {
+          if (state is Map) {
+            print('mao cakked');
+          }
+        },
+        builder: (context, state) {
+          return Scaffold(
+            backgroundColor: Colors.grey,
+            appBar: AppBar(
+              backgroundColor: Colors.black,
+            ),
+            body: Container(
+              color: Colors.white,
+              padding: EdgeInsets.only(top: 10, left: 10, right: 10),
+              child: LayoutBuilder(builder: (ctx, constraints) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Container(
+                        height: constraints.maxHeight * 0.07,
+                        child: Center(
+                          child: GestureDetector(
+                            onTap: () {
+                              _mapListingBloc.add(MapList());
+                            },
+                            child: Text(
+                              'Your Past Trips',
+                              style: TextStyle(fontSize: 23),
                             ),
-                          ))
-                      .toList(),
-                ),
-              )
-            ],
+                          ),
+                        )),
+                    Container(
+                      height: constraints.maxHeight * 0.93,
+                      child: ListView(
+                        children: tripsData
+                            .map((trip) => Container(
+                                  padding: EdgeInsets.symmetric(vertical: 10),
+                                  height: 300,
+                                  child: GridTile(
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        Navigator.pushNamed(
+                                          context,
+                                          TripDetailsScreen.routeName,
+                                          arguments: {
+                                            'name': trip.name,
+                                            'rating': trip.rating,
+                                            'date': trip.date,
+                                          },
+                                        );
+                                      },
+                                      child: FadeInImage(
+                                        placeholder:
+                                            AssetImage('assets/images/map.jpg'),
+                                        image:
+                                            AssetImage('assets/images/map.jpg'),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    footer: GridTileBar(
+                                      backgroundColor: Colors.grey[850],
+                                      leading: Icon(Icons.access_alarms),
+                                      title: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            '${trip.date.toString().substring(0, 10)}   ${trip.date.toString().substring(12, 19)}',
+                                            style: TextStyle(fontSize: 15),
+                                          ),
+                                          trip.tripCount == 0
+                                              ? Text(
+                                                  'cancelled',
+                                                  style:
+                                                      TextStyle(fontSize: 20),
+                                                )
+                                              : Text(
+                                                  '${trip.tripCount.toString()}',
+                                                  style:
+                                                      TextStyle(fontSize: 20)),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ))
+                            .toList(),
+                      ),
+                    )
+                  ],
+                );
+              }),
+            ),
           );
-        }),
-      ),
-    );
+        });
   }
 }
 

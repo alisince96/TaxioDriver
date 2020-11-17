@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:taxio/Blocs/RegistrationBloc/bloc/registeration_bloc.dart';
 import '../Constants/Constants.dart';
 import 'RegisterPhoneScreen.dart';
 import 'SignInScreen.dart';
@@ -31,8 +33,18 @@ class AuthScreen extends StatelessWidget {
               width: deviceSize.width * 0.7,
               child: Column(
                 children: [
-                  ButtonWidget(SignInScreen.routeName, 'Sign In'),
-                  ButtonWidget(RegisterPhoneScreen.routeName, 'Register'),
+                  ButtonWidget(
+                    () {
+                      navFunction(context, SignInScreen.routeName);
+                    },
+                    'Sign In',
+                  ),
+                  ButtonWidget(
+                    () {
+                      navFunction(context, RegisterPhoneScreen.routeName);
+                    },
+                    'Register',
+                  ),
                 ],
               ),
             ),

@@ -1,8 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:taxio/Blocs/RegistrationBloc/bloc/registeration_bloc.dart';
-import 'package:taxio/Screens/OPTscreen.dart';
 import 'package:taxio/Screens/RegisterNameEmailPW.dart';
 import '../Constants/Constants.dart';
 import 'package:country_code_picker/country_code_picker.dart';
@@ -15,6 +15,100 @@ class RegisterPhoneScreen extends StatefulWidget {
 }
 
 class _RegisterPhoneScreenState extends State<RegisterPhoneScreen> {
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+  String smsCode;
+  String verificationCode;
+  String phoneNumber;
+
+  Future<void> _submit() async {
+    setState(() {
+      showLoader = true;
+    });
+    final PhoneVerificationCompleted verificationSuccess =
+        (AuthCredential credential) {
+      setState(() {
+        print('reacheddjjshdishdihhhhhhhhhhhhhhhhhh00000000000000000000');
+      });
+    };
+
+    final PhoneVerificationFailed phoneVerificationFailed =
+        (AuthException exception) {};
+    final PhoneCodeSent phoneCodeSent = (String verId, [int forceCodeResend]) {
+      this.verificationCode = verId;
+      setState(() {
+        showLoader = false;
+      });
+      smsCodeDialog(context).then((value) => print("Signed In"));
+    };
+
+    final PhoneCodeAutoRetrievalTimeout autoRetrievalTimeout = (String verId) {
+      this.verificationCode = verId;
+    };
+
+    await FirebaseAuth.instance.verifyPhoneNumber(
+        phoneNumber: this.phoneNumber,
+        timeout: const Duration(seconds: 5),
+        verificationCompleted: verificationSuccess,
+        verificationFailed: phoneVerificationFailed,
+        codeSent: phoneCodeSent,
+        codeAutoRetrievalTimeout: autoRetrievalTimeout);
+  }
+
+  Future<bool> smsCodeDialog(BuildContext context) {
+    return showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text(
+              "Enter Code",
+              style: TextStyle(
+                color: Colors.green[900],
+              ),
+            ),
+            content: TextField(
+              onChanged: (Value) {
+                smsCode = Value;
+              },
+            ),
+            contentPadding: EdgeInsets.all(10),
+            actions: <Widget>[
+              FlatButton(
+                child: Text(
+                  "Verify",
+                  style: TextStyle(
+                    color: Colors.green[900],
+                  ),
+                ),
+                onPressed: () {
+                  FirebaseAuth.instance.currentUser().then((user) {
+                    if (user != null) {
+                      _registerationBloc
+                          .add(CheckPhoneValidity(phoneNumber: phoneNumber));
+                    } else {
+                      Navigator.of(context).pop();
+                      signIn();
+                    }
+                  });
+                },
+              )
+            ],
+          );
+        });
+  }
+
+  signIn() {
+    AuthCredential phoneAuthCredential = PhoneAuthProvider.getCredential(
+        verificationId: verificationCode, smsCode: smsCode);
+    FirebaseAuth.instance
+        .signInWithCredential(phoneAuthCredential)
+        .then((user) => _registerationBloc
+            .add(CheckPhoneValidity(phoneNumber: phoneNumber)))
+        .catchError((e) => print(e));
+  }
+
+  bool _validate = false;
+  String hint = 'Enter Number';
   RegisterationBloc _registerationBloc;
   bool showLoader = false;
   initState() {
@@ -23,7 +117,6 @@ class _RegisterPhoneScreenState extends State<RegisterPhoneScreen> {
   }
 
   TextEditingController phoneController = TextEditingController();
-  String phoneNumber;
 
   _onCountryChange(CountryCode countryCode) {
     return countryCode.toString();
@@ -39,13 +132,31 @@ class _RegisterPhoneScreenState extends State<RegisterPhoneScreen> {
         if (state is LoadingState) {
           showLoader = true;
         } else if (state is ErrorState) {
-          showLoader = false;
-          Scaffold.of(context)
-              .showSnackBar(SnackBar(content: Text(state.error)));
+          print('ErrorState');
+          print('ErrorState');
+          print('ErrorState');
+          print('ErrorState');
+          print('ErrorState');
+          print('ErrorState');
+          print('ErrorState');
+          print('ErrorState');
+          print('ErrorState');
+          print('ErrorState');
+          print('ErrorState');
+          print('ErrorState');
+          print('ErrorState');
+
+          setState(() {
+            showLoader = false;
+            _scaffoldKey.currentState
+                .showSnackBar(SnackBar(content: Text(state.error)));
+          });
         } else if (state is PhoneValiditySuccess) {
-          showLoader = false;
-          print('Phone Verified');
-          Navigator.pushNamed(context, RegisterNameEmailPW.routeName,
+          print('PhoneValiditySuccess');
+          setState(() {
+            showLoader = false;
+          });
+          Navigator.pushReplacementNamed(context, RegisterNameEmailPW.routeName,
               arguments: phoneNumber);
         }
       },
@@ -53,6 +164,7 @@ class _RegisterPhoneScreenState extends State<RegisterPhoneScreen> {
         return ModalProgressHUD(
           inAsyncCall: showLoader,
           child: Scaffold(
+            key: _scaffoldKey,
             appBar: AppBar(
               backgroundColor: Colors.black,
             ),
@@ -72,7 +184,7 @@ class _RegisterPhoneScreenState extends State<RegisterPhoneScreen> {
                     child: Card(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(100.0),
-                          side: BorderSide(color: Colors.black)),
+                          side: BorderSide(color: colour)),
                       child: Center(
                         child: CountryCodePicker(
                           onChanged: (e) => {
@@ -98,7 +210,7 @@ class _RegisterPhoneScreenState extends State<RegisterPhoneScreen> {
                     child: Card(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(100.0),
-                          side: BorderSide(color: Colors.black)),
+                          side: BorderSide(color: colour)),
                       child: Container(
                         padding: const EdgeInsets.symmetric(horizontal: 12),
                         width: 100,
@@ -118,7 +230,11 @@ class _RegisterPhoneScreenState extends State<RegisterPhoneScreen> {
                                 child: TextField(
                                   controller: phoneController,
                                   decoration: InputDecoration(
-                                    hintText: 'Enter Number',
+                                    hintText: hint,
+                                    hintStyle: TextStyle(
+                                        color: _validate
+                                            ? Colors.redAccent
+                                            : Colors.grey),
                                     border: InputBorder.none,
                                     focusedBorder: InputBorder.none,
                                     enabledBorder: InputBorder.none,
@@ -139,10 +255,17 @@ class _RegisterPhoneScreenState extends State<RegisterPhoneScreen> {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         GestureDetector(
-                          onTap: () {
-                            phoneNumber = code + phoneController.text;
-                            _registerationBloc.add(
-                                CheckPhoneValidity(phoneNumber: phoneNumber));
+                          onTap: () async {
+                            if (phoneController.text.isEmpty) {
+                              setState(() {
+                                hint = "This Field can't be empty";
+                                _validate = true;
+                              });
+                              return;
+                            } else {
+                              phoneNumber = code + phoneController.text;
+                              await _submit();
+                            }
                           },
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),

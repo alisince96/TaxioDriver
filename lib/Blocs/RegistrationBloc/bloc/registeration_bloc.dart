@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:taxio/Models/RegisterResponse.dart';
 import 'package:taxio/Models/phoneValidityResponse.dart';
@@ -10,6 +11,8 @@ part 'registeration_event.dart';
 part 'registeration_state.dart';
 
 class RegisterationBloc extends Bloc<RegisterationEvent, RegisterationState> {
+  static String err = null;
+
   RegisterationBloc() : super(RegisterationInitial());
   Repository repository = Repository();
 
@@ -26,20 +29,22 @@ class RegisterationBloc extends Bloc<RegisterationEvent, RegisterationState> {
             phoneValiditityResponse.data.isAvailable == true) {
           yield PhoneValiditySuccess();
         } else {
-          yield ErrorState(error: 'Invalid phone number');
+          yield ErrorState(error: '$err');
         }
       }
     } else if (event is RegisterTrigger) {
       yield LoadingState();
+
       RegisterResponse registerResponse = await repository.register(
           name: event.name,
           email: event.email,
           password: event.password,
           phone: event.phone);
-      if (registerResponse != null && registerResponse.data!=null){
+
+      if (registerResponse != null && registerResponse.data != null) {
         yield RegisterSuccess();
       } else {
-        yield ErrorState(error: 'Failed to register');
+        yield ErrorState(error: '$err');
       }
     }
   }

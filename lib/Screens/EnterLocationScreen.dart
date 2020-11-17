@@ -1,13 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_place_picker/google_maps_place_picker.dart';
+import 'package:taxio/PickUp&DropOffLocation/PickupDropoff.dart';
 import 'package:taxio/Widgets/Drawer.dart';
 import '../Constants/Constants.dart';
 import 'FareEstimateScreen.dart';
 
-class EnterLocationScreen extends StatelessWidget {
-  PickResult selectedPlace;
+PickUpLocation pickUpLocation;
+DropOffLocation dropOffLocation;
 
+class EnterLocationScreen extends StatefulWidget {
   static const routeName = '/EnterLocationScreen';
+
+  @override
+  _EnterLocationScreenState createState() => _EnterLocationScreenState();
+}
+
+class _EnterLocationScreenState extends State<EnterLocationScreen> {
+  PickResult pickUp;
+  PickResult dropOff;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,11 +37,8 @@ class EnterLocationScreen extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          selectedPlace == null
-              ? Container()
-              : Text(selectedPlace.formattedAddress ?? ""),
           Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(15.0),
             child: Card(
               color: Colors.white,
               elevation: 5.0,
@@ -50,17 +58,22 @@ class EnterLocationScreen extends StatelessWidget {
                               apiKey:
                                   'AIzaSyDF2jk_6QlbwWBhsKMjrj2D0lmArQHIrk0', // Put YOUR OWN KEY here.
                               onPlacePicked: (result) {
-                                print(result.geometry.location.lat);
-                                print(result.geometry.location.lng);
-                                selectedPlace = result;
+                                pickUpLocation = PickUpLocation(
+                                    address: result.formattedAddress,
+                                    latitude: result.geometry.location.lat,
+                                    longitude: result.geometry.location.lng);
+                                print(pickUpLocation.address);
+                                print(pickUpLocation.latitude);
+                                print(pickUpLocation.longitude);
+                                setState(() {
+                                  pickUp = result;
+                                });
                                 Navigator.of(context).pop();
                               },
                               useCurrentLocation: true,
                             ),
                           ),
                         );
-                        // Navigator.pushNamed(
-                        //     context, FareEstimateScreen.routeName);
                       },
                       child: Row(
                         children: [
@@ -70,10 +83,18 @@ class EnterLocationScreen extends StatelessWidget {
                             decoration: BoxDecoration(
                                 shape: BoxShape.circle, color: Colors.green),
                           ),
-                          Text(
-                            ' Source',
-                            style: TextStyle(fontSize: 17),
+                          SizedBox(
+                            width: 2,
                           ),
+                          (pickUp == null)
+                              ? Text(
+                                  ' Source',
+                                  style: TextStyle(fontSize: 17),
+                                )
+                              : Container(
+                                  width: deviceSize.width * 0.75,
+                                  child: Text('\$${pickUpLocation.address}'),
+                                ),
                         ],
                       ),
                     ),
@@ -85,8 +106,29 @@ class EnterLocationScreen extends StatelessWidget {
                         )),
                     GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(
-                            context, FareEstimateScreen.routeName);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => PlacePicker(
+                              apiKey:
+                                  'AIzaSyDF2jk_6QlbwWBhsKMjrj2D0lmArQHIrk0', // Put YOUR OWN KEY here.
+                              onPlacePicked: (result) {
+                                dropOffLocation = DropOffLocation(
+                                    address: result.formattedAddress,
+                                    latitude: result.geometry.location.lat,
+                                    longitude: result.geometry.location.lng);
+                                print(dropOffLocation.address);
+                                print(dropOffLocation.latitude);
+                                print(dropOffLocation.longitude);
+                                setState(() {
+                                  dropOff = result;
+                                });
+                                Navigator.of(context).pop();
+                              },
+                              useCurrentLocation: true,
+                            ),
+                          ),
+                        );
                       },
                       child: Row(
                         children: [
@@ -96,10 +138,15 @@ class EnterLocationScreen extends StatelessWidget {
                             decoration: BoxDecoration(
                                 shape: BoxShape.circle, color: Colors.black),
                           ),
-                          Text(
-                            ' Destination Required',
-                            style: TextStyle(fontSize: 17),
-                          ),
+                          (dropOff == null)
+                              ? Text(
+                                  ' Destination Required',
+                                  style: TextStyle(fontSize: 17),
+                                )
+                              : Container(
+                                  width: deviceSize.width * 0.75,
+                                  child: Text('\$${dropOffLocation.address}'),
+                                ),
                         ],
                       ),
                     ),
@@ -117,10 +164,15 @@ class EnterLocationScreen extends StatelessWidget {
                 width: 250,
                 height: 40,
                 child: card(
-                  Center(
-                    child: Text(
-                      'Request Cheapest',
-                      style: TextStyle(color: Colors.white),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context, 'getDirection');
+                    },
+                    child: Center(
+                      child: Text(
+                        'Request Cheapest',
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
                   ),
                 ),

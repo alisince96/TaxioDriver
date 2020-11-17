@@ -1,5 +1,6 @@
 import 'dart:collection';
 
+import 'package:taxio/Blocs/RegistrationBloc/bloc/registeration_bloc.dart';
 import 'package:taxio/Models/RegisterResponse.dart';
 import 'package:taxio/Providers/base_provider.dart';
 import 'package:taxio/Web_services/GetDataFromHttp.dart';
@@ -29,11 +30,17 @@ class RegisterProvider extends BaseProvider {
       registerParams.putIfAbsent('name', () => name.toString());
       registerParams.putIfAbsent('email', () => email.toString());
       registerParams.putIfAbsent('password', () => password.toString());
-      registerParams.putIfAbsent('phone', () => phone.toString());
+      registerParams.putIfAbsent('phone_number', () => phone.toString());
       dynamic response =
           await GetDataFromHttp.apiHit(ServiceUrls.registerAPI, registerParams);
+
+      if (response['message'] != null) {
+        RegisterationBloc.err = response['message'];
+      }
       RegisterResponse registerResponse = RegisterResponse.fromJson(response);
-      if (registerResponse != null && registerResponse.status == 'success') {
+      if (response['message'] == null &&
+          registerResponse != null &&
+          registerResponse.status == 'success') {
         return registerResponse;
       }
     } catch (e) {

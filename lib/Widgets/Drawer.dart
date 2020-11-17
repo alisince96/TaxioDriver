@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:taxio/Constants/Constants.dart';
 import 'package:taxio/Screens/EditAccountScreen.dart';
 import 'package:taxio/Screens/PromotionScreen.dart';
 import 'package:taxio/Screens/SettingsScreen.dart';
@@ -51,8 +52,11 @@ class Draw extends StatelessWidget {
                                 ),
                                 color: Colors.white,
                                 onPressed: () {
-                                  Navigator.pushNamed(
+                                  navFunction(
                                       context, EditAccountScreen.routeName);
+
+                                  // Navigator.pushNamed(
+                                  //     context, EditAccountScreen.routeName);
                                 },
                               ),
                             ),
@@ -89,7 +93,9 @@ class Draw extends StatelessWidget {
                 children: [
                   GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(context, TripsScreen.routeName);
+                        navFunction(context, TripsScreen.routeName);
+
+                        // Navigator.pushNamed(context, TripsScreen.routeName);
                       },
                       child: TxtWidget('Trips')),
                   SizedBox(
@@ -97,7 +103,8 @@ class Draw extends StatelessWidget {
                   ),
                   GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(context, PromotionScreen.routeName);
+                        navFunction(context, PromotionScreen.routeName);
+                        // Navigator.pushNamed(context, PromotionScreen.routeName);
                       },
                       child: TxtWidget('Promotion')),
                   SizedBox(
@@ -105,7 +112,9 @@ class Draw extends StatelessWidget {
                   ),
                   GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(context, SettingsScreen.routeName);
+                        navFunction(context, SettingsScreen.routeName);
+
+                        // Navigator.pushNamed(context, SettingsScreen.routeName);
                       },
                       child: TxtWidget('Settings')),
                   SizedBox(
@@ -113,8 +122,10 @@ class Draw extends StatelessWidget {
                   ),
                   GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(
-                            context, TaxioWalletScreen.routeName);
+                        navFunction(context, TaxioWalletScreen.routeName);
+
+                        // Navigator.pushNamed(
+                        //     context, TaxioWalletScreen.routeName);
                       },
                       child: TxtWidget('Taxio Wallet')),
                 ],

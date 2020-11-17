@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "334846734800",
+    "firebase_url": "https://taxiomobileauth.firebaseio.com",
+    "project_id": "taxiomobileauth",
+    "storage_bucket": "taxiomobileauth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:334846734800:android:8bb49625eba4adf3bdc9d5",
+        "android_client_info": {
+          "package_name": "com.faizan.taxio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "334846734800-l48mbbhjjos480fpu95f9pf3l34l6nrj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.faizan.taxio",
+            "certificate_hash": "14adef3bd23db03a8dda9a48f315ee01fe4b38fd"
+          }
+        },
+        {
+          "client_id": "334846734800-73dpj9l9cslhdne135ani2o587cus3k6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmV2b2NlysItUlImBrm4s1c051flAqOvU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "334846734800-73dpj9l9cslhdne135ani2o587cus3k6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
