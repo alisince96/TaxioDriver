@@ -5,7 +5,6 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:taxio/Constants/Constants.dart';
-import 'package:taxio/PickUp&DropOffLocation/PickupDropoff.dart';
 import 'package:taxio/Providers/MapCoordinateProvider.dart';
 import 'package:taxio/Screens/EnterLocationScreen.dart';
 import 'package:taxio/Screens/FareEstimateScreen.dart';
